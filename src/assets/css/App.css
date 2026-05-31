@@ -19,6 +19,15 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
 .sidebar_down {
     flex: 1.5;
     border: 1px solid rgba(255, 255, 255, 0.2);
