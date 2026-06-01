@@ -17,6 +17,9 @@
 .sidebar_up {
     flex: 2.5;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
 .image {
@@ -26,6 +29,29 @@
     column-gap: 1rem;
     margin-top: 1rem;
     margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.new_chat {
+    background-color: #555bff;
+    height: 3rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+
+}
+
+.new_chat span {
+    color: white;
+}
+
+.new_chat img {
+    height: 1rem;
+    width: 1rem;
 }
 
 .sidebar_down {

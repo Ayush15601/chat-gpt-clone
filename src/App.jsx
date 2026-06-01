@@ -1,5 +1,6 @@
 import "./assets/css/App.css"
 import gptlogo from "./assets/chatgpt.svg"
+import plus from "./assets/add-30.png"
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
               <span> Chat GPT </span>
 
             </div>
+
+              <button className="new_chat"> <img src={plus} alt="plys sign" /> <span> New </span> </button>
 
           </div>
 
