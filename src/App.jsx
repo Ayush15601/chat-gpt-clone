@@ -5,6 +5,9 @@ import comment from "./assets/message.svg"
 import home from "./assets/home.svg"
 import book from "./assets/bookmark.svg"
 import rocket from "./assets/rocket.svg"
+import send from "./assets/send.svg"
+import pic from "./assets/user-icon.png"
+import logo from "./assets/chatgptLogo.svg"
 
 function App() {
 
@@ -48,6 +51,25 @@ function App() {
         
         <div className="main">
 
+          <div className="content_box">
+
+            <div className="image">
+
+              <img src={pic} alt="profile.pic" />
+
+              <p> Write an article on laptop </p>
+
+            </div>
+
+            <div className="answer">
+
+              <img src={logo} alt="chat gpt pic" />
+
+              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet esse veniam magni asperiores nemo illo rerum maxime dicta temporibus! Nisi similique, accusamus voluptate nostrum ipsam recusandae iure tempora asperiores repudiandae velit quasi cumque temporibus quo molestias inventore cupiditate labore amet unde assumenda? Necessitatibus quis accusantium dolores laudantium. Neque eius minus quibusdam aperiam saepe repellendus. Facere, esse? Debitis, a incidunt. Dicta, quo. Suscipit cupiditate quaerat dolore ratione nam, quos maxime delectus itaque optio soluta, fuga iusto hic provident natus error temporibus id saepe odit expedita rem dolorem eius perferendis minus eligendi. Quidem quis cupiditate repellat itaque quibusdam doloribus esse ullam!</p>
+
+            </div>
+
+          </div>
 
         </div>
   
