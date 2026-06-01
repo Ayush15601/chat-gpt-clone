@@ -34,7 +34,7 @@
 
 .new_chat {
     background-color: #555bff;
-    height: 3rem;
+    min-height: 3rem;
     width: 90%;
     display: flex;
     justify-content: center;
@@ -42,7 +42,20 @@
     column-gap: 0.5rem;
     margin-top: 1rem;
     margin-left: 1rem;
+}
 
+.new_chat2 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 3rem;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.5rem;
+    column-gap: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: white;
 }
 
 .new_chat span {
