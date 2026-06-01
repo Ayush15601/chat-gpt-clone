@@ -2,6 +2,9 @@ import "./assets/css/App.css"
 import gptlogo from "./assets/chatgpt.svg"
 import plus from "./assets/add-30.png"
 import comment from "./assets/message.svg"
+import home from "./assets/home.svg"
+import book from "./assets/bookmark.svg"
+import rocket from "./assets/rocket.svg"
 
 function App() {
 
@@ -32,6 +35,12 @@ function App() {
           </div>
 
           <div className="sidebar_down">
+
+              <button className="setting"> <img src={home} alt="plys sign" /> <span> Home </span> </button>
+
+              <button className="setting"> <img src={book} alt="plys sign" /> <span> Saved </span> </button>
+              
+              <button > <img src={rocket} alt="plys sign" /> <span> Upgtade to pro? </span> </button>
 
           </div>
 
