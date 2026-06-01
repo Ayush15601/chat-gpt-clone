@@ -68,8 +68,10 @@
 }
 
 .sidebar_down {
-    flex: 1.5;
+    flex: 1;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 .setting {
