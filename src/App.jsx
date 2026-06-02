@@ -5,14 +5,53 @@ import comment from "./assets/message.svg"
 import home from "./assets/home.svg"
 import book from "./assets/bookmark.svg"
 import rocket from "./assets/rocket.svg"
-// import send from "./assets/send.svg"
 import pic from "./assets/user-icon.png"
 import logo from "./assets/chatgptLogo.svg"
 import send from "./assets/send.svg"
-import "./assets/components/api"
+
+import Box from "./assets/components/response"
+
+import {main} from "./assets/components/api"
+import { useState } from "react"
 
 function App() {
 
+  const [text, settext] = useState("")
+  const [res, setres] = useState("")
+  const [err, seterr] = useState(null)
+  const [loading, setloading] = useState(false)
+
+   const load_response = async () => {
+
+      try{
+        setloading(true)
+        const get_response = await main(text)
+        setres(get_response)
+      }
+
+      catch(err){
+        console.log(err)
+        seterr("Failed to get response form server")
+      }
+
+      finally{
+        setloading(false)
+      }
+    }
+
+    const load = (e) => {
+
+      e.preventDefault()
+      load_response()
+    }
+
+    const clean = () => {
+      setres("")
+      settext("")
+      seterr(null)
+      setloading(false)
+    }
+ 
   return (
   
   <>
@@ -31,19 +70,19 @@ function App() {
 
             </div>
 
-              <button className="new_chat"> <img src={plus} alt="plys sign" /> <span> New chat </span> </button>
+              <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
 
-              <button className="new_chat2"> <img src={comment} alt="plys sign" /> <span> What is programming? </span> </button>
+              <button className="new_chat2"> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
 
-              <button className="new_chat2"> <img src={comment} alt="plys sign" /> <span> How to use API? </span> </button>
+              <button className="new_chat2"> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
 
           </div>
 
           <div className="sidebar_down">
 
-              <button className="setting"> <img src={home} alt="plys sign" /> <span> Home </span> </button>
+              <button className="setting"> <img src={home} alt="home pic" /> <span> Home </span> </button>
 
-              <button className="setting"> <img src={book} alt="plys sign" /> <span> Saved </span> </button>
+              <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
               
               <button > <img src={rocket} alt="plys sign" /> <span> Upgtade to pro? </span> </button>
 
@@ -55,31 +94,13 @@ function App() {
 
           <div className="content_box">
 
-            <div className="box1">
-
-                <div className="image">
-
-                  <img src={pic} alt="profile.pic" />
-
-                  <p> Write an article on laptop </p>
-
-                </div>
-
-              <div className="box2">
-
-                <img src={logo} alt="chat gpt pic" />
-
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique amet esse veniam magni asperiores nemo illo rerum maxime dicta temporibus! Nisi similique, accusamus voluptate nostrum ipsam recusandae iure tempora asperiores repudiandae velit quasi cumque temporibus quo molestias inventore cupiditate labore amet unde assumenda? Necessitatibus quis accusantium dolores laudantium. Neque eius minus quibusdam aperiam saepe repellendus. Facere, esse? Debitis, a incidunt. Dicta, quo. Suscipit cupiditate quaerat dolore ratione nam, quos maxime delectus itaque optio soluta, fuga iusto hic provident natus error temporibus id saepe odit expedita rem dolorem eius perferendis minus eligendi. Quidem quis cupiditate repellat itaque quibusdam doloribus esse ullam!</p>
-
-              </div>
-            
-            </div>
+            {(loading || err || res.length > 0) && (<Box value={{image: pic, logopic: logo, error: err, load: loading, response: res, promt: text}}/>)}
 
             <div className="send_message"> 
                 
-              <form action="" method="post">
+              <form action="#" method="get" onSubmit={load}>
   
-               <textarea name="text" className="btn" placeholder="Type your message"></textarea> <button className="btn2" > <img src={send} alt="send mesage" /> </button>
+               <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" > <img src={send} alt="send mesage" /> </button>
 
               </form>
               
