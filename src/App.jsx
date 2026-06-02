@@ -9,6 +9,7 @@ import rocket from "./assets/rocket.svg"
 import pic from "./assets/user-icon.png"
 import logo from "./assets/chatgptLogo.svg"
 import send from "./assets/send.svg"
+import "./assets/components/api"
 
 function App() {
 
@@ -76,7 +77,7 @@ function App() {
 
             <div className="send_message"> 
                 
-              <form action="" method="get">
+              <form action="" method="post">
   
                <textarea name="text" className="btn" placeholder="Type your message"></textarea> <button className="btn2" > <img src={send} alt="send mesage" /> </button>
 
