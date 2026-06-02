@@ -4,6 +4,8 @@
 *::after {
   margin: 0;
   padding: 0;
+  outline: none;
+  border: none;
   box-sizing: border-box;
 }
 
@@ -63,7 +65,7 @@ button {
 }
 
 /* 6. Accessibility focus rings */
-*:focus-visible {
+/* *:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
-}
+} */
