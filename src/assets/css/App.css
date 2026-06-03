@@ -8,7 +8,7 @@
 .sidebar {
     max-width: 17rem;
     width: 100%;
-    height: 100vh;
+    height: 46rem;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -103,7 +103,7 @@
 .main {
     max-width: 79rem;
     width: 100%;
-    height: 100vh;
+    min-height: 40rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
@@ -137,7 +137,7 @@
     display: flex;
     flex-direction: column;
     justify-content: baseline;
-    row-gap: 20rem;
+    row-gap: 5rem;
 }
 
 .send_message form {

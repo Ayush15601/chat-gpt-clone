@@ -20,13 +20,25 @@ function App() {
   const [res, setres] = useState("")
   const [err, seterr] = useState(null)
   const [loading, setloading] = useState(false)
+  const [Messages, setMessages] = useState([])
 
    const load_response = async () => {
 
       try{
+
+        // clear old error before second request
+        seterr(null)
         setloading(true)
         const get_response = await main(text)
         setres(get_response)
+
+        setMessages(prev => [
+          ...prev,
+        {
+          question: text,
+          response: get_response
+        }
+]);
       }
 
       catch(err){
@@ -42,6 +54,10 @@ function App() {
     const load = (e) => {
 
       e.preventDefault()
+
+      // prevent emty message
+      if (!text.trim()) return;
+
       load_response()
     }
 
@@ -84,7 +100,7 @@ function App() {
 
               <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
               
-              <button > <img src={rocket} alt="plys sign" /> <span> Upgtade to pro? </span> </button>
+              <button > <img src={rocket} alt="plys sign" /> <span> Upgrade to pro? </span> </button>
 
           </div>
 
@@ -94,13 +110,14 @@ function App() {
 
           <div className="content_box">
 
-            {(loading || err || res.length > 0) && (<Box value={{image: pic, logopic: logo, error: err, load: loading, response: res, promt: text}}/>)}
+            {(Messages.map( (item, index) => (<Box value={{pic: pic, logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={index}/>)))}
 
             <div className="send_message"> 
                 
               <form action="#" method="get" onSubmit={load}>
   
-               <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" > <img src={send} alt="send mesage" /> </button>
+                {/* ckheck disabled attribute */}
+               <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" disabled={loading} > <img src={send} alt="send mesage" /> </button>
 
               </form>
               
