@@ -140,6 +140,11 @@
     row-gap: 5rem;
 }
 
+.loading,
+.error {
+    text-align: center;
+}
+
 .send_message form {
     display: flex;
     flex-direction: row;

@@ -17,7 +17,6 @@ import { useState } from "react"
 function App() {
 
   const [text, settext] = useState("")
-  const [res, setres] = useState("")
   const [err, seterr] = useState(null)
   const [loading, setloading] = useState(false)
   const [Messages, setMessages] = useState([])
@@ -30,7 +29,6 @@ function App() {
         seterr(null)
         setloading(true)
         const get_response = await main(text)
-        setres(get_response)
 
         setMessages(prev => [
           ...prev,
@@ -38,7 +36,7 @@ function App() {
           question: text,
           response: get_response
         }
-]);
+            ]);
       }
 
       catch(err){
@@ -62,7 +60,7 @@ function App() {
     }
 
     const clean = () => {
-      setres("")
+      setMessages([])
       settext("")
       seterr(null)
       setloading(false)
@@ -109,6 +107,10 @@ function App() {
         <div className="main">
 
           <div className="content_box">
+
+            {err && <p className="error"> {err} </p>}
+
+            {loading && <p className="loading"> loading... </p>}
 
             {(Messages.map( (item, index) => (<Box value={{pic: pic, logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={index}/>)))}
 
