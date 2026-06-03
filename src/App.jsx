@@ -20,6 +20,7 @@ function App() {
   const [err, seterr] = useState(null)
   const [loading, setloading] = useState(false)
   const [Messages, setMessages] = useState([])
+  const [active, setactive] = useState(false)
 
    const load_response = async () => {
 
@@ -56,6 +57,8 @@ function App() {
       // prevent emty message
       if (!text.trim()) return;
 
+      // to change class of input box on load
+      setactive(true)
       load_response()
     }
 
@@ -64,6 +67,7 @@ function App() {
       settext("")
       seterr(null)
       setloading(false)
+      setactive(false)
     }
  
   return (
@@ -125,7 +129,7 @@ function App() {
               <form action="#" method="get" onSubmit={load}>
   
                 {/* ckheck disabled attribute */}
-                <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" disabled={loading} > <img src={send} alt="send mesage" /> </button>
+                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
 
               </form>
               

@@ -26,10 +26,8 @@
 .sidebar_up .image {
     display: flex;
     flex-direction: row;
-    align-items: center;
     column-gap: 1rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: -2rem;
     margin-top: 2rem;
 }
 
@@ -176,7 +174,35 @@ footer {
     column-gap: 0;
 }
 
-.send_message .btn {
+.s1 {
+    width: 37.6%;
+    height: 3rem;
+    background-color: #182243;
+    margin-left: 2rem;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 0.5rem;
+    padding-top: 0.8rem;
+    position: fixed;
+    right: 21rem;
+    bottom: 22rem;
+}
+
+.s2 {
+    width: 5%;
+    min-height: 3rem;
+    background-color: #182243;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    position: fixed;
+    right: 19rem;
+    bottom: 22rem;
+}
+
+.s1a1 {
     width: 37.6%;
     height: 3rem;
     background-color: #182243;
@@ -191,7 +217,7 @@ footer {
     bottom: 1rem;
 }
 
-.send_message .btn2 {
+.s2a2 {
     width: 5%;
     min-height: 3rem;
     background-color: #182243;
@@ -200,6 +226,6 @@ footer {
     justify-content: flex-end;
     padding-right: 10px;
     position: fixed;
-    right: 19rem;
+    right: 20rem;
     bottom: 1rem;
 }
