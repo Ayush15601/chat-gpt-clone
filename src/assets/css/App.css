@@ -119,6 +119,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
+    overflow-y: auto;
 }
 
 .content_box .image {
@@ -147,6 +148,28 @@
     text-align: center;
 }
 
+textarea::-webkit-resizer {
+    display: none;
+}
+
+footer {
+    min-height: 5rem;
+}
+
+.send_message {
+    background-color: rgb(3, 0, 31);
+    width: 41%;
+    height: 4rem;
+    position: fixed;
+    right: 19rem;
+    top: 42rem;
+}
+
+.send_message .btn2 img {
+    width: 1.5rem;
+
+}
+
 .send_message form {
     display: flex;
     flex-direction: row;
@@ -154,7 +177,7 @@
 }
 
 .send_message .btn {
-    width: 85%;
+    width: 37.6%;
     height: 3rem;
     background-color: #182243;
     margin-left: 2rem;
@@ -163,6 +186,9 @@
     justify-content: flex-end;
     padding-left: 0.5rem;
     padding-top: 0.8rem;
+    position: fixed;
+    right: 21rem;
+    bottom: 1rem;
 }
 
 .send_message .btn2 {
@@ -171,13 +197,9 @@
     background-color: #182243;
     color: white;
     display: flex;
-    justify-content: center;
-}
-
-textarea::-webkit-resizer {
-    display: none;
-}
-
-.send_message .btn2 img {
-    width: 1.5rem;
+    justify-content: flex-end;
+    padding-right: 10px;
+    position: fixed;
+    right: 19rem;
+    bottom: 1rem;
 }

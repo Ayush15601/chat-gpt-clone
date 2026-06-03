@@ -113,19 +113,23 @@ function App() {
             {loading && <p className="loading"> loading... </p>}
 
             {(Messages.map( (item, index) => (<Box value={{pic: pic, logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={index}/>)))}
+            
+            <footer>
+            
+            </footer>
 
-            <div className="send_message"> 
+          </div>
+
+          <div className="send_message"> 
                 
               <form action="#" method="get" onSubmit={load}>
   
                 {/* ckheck disabled attribute */}
-               <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" disabled={loading} > <img src={send} alt="send mesage" /> </button>
+                <textarea name="text" className="btn" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className="btn2" disabled={loading} > <img src={send} alt="send mesage" /> </button>
 
               </form>
               
             </div>
-            
-          </div>
 
         </div>
   
