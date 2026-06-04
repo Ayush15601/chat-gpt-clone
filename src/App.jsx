@@ -54,12 +54,18 @@ function App() {
 
       e.preventDefault()
 
-      // prevent emty message
+      // prevent emtpy message
       if (!text.trim()) return;
+
+      // prevent multiple requet
+      if(loading) return
 
       // to change class of input box on load
       setactive(true)
       load_response()
+
+      // to clean text after loading response
+      settext("")
     }
 
     const clean = () => {
@@ -69,6 +75,17 @@ function App() {
       setloading(false)
       setactive(false)
     }
+
+    // send data by pressing enter
+    const enter = (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+      
+        e.preventDefault();
+
+        // here load_response() will not used
+        load(e)
+    }
+};
  
   return (
   
@@ -128,8 +145,8 @@ function App() {
                 
               <form action="#" method="get" onSubmit={load}>
   
-                {/* ckheck disabled attribute */}
-                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
+                {/* ckheck disabled attribute in button */}
+                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
 
               </form>
               

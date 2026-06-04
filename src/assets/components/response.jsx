@@ -18,7 +18,7 @@ function Box({value}) {
         
                         <img src={value.logo} alt="chat gpt pic" />
         
-                        {value.error && <p>{value.err}</p>}
+                        {value.err && <p>{value.err}</p>}
         
                         {value.loading && <p> loading... </p>}
         
