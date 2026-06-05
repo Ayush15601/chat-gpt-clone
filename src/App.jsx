@@ -61,20 +61,22 @@ function App() {
       if(loading) return
       
       // to change class of input box on load
-      setactive(true)
       
       if(id === "1"){
+        setactive(true)
         load_response("what is programing?")
       }
       
       if(id === "2"){
+        setactive(true)
         load_response("what is the use of api?")
       }
       
-      if(id === "3"){
+      if(id === "3" || id === "4"){
         
         // prevent emtpy message
         if(!text.trim()) return
+        setactive(true)
         load_response(text)
 
         // to clean text after loading response
@@ -156,7 +158,7 @@ function App() {
               <form action="#" method="get" id="3" onSubmit={load}>
   
                 {/* ckheck disabled attribute in button */}
-                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`}> <img src={send} alt="send mesage" /> </button>
+                <textarea name="text" className={`s ${active ? "a" : ""}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} id="4" onKeyDown={enter}></textarea> <button className={`s2 ${active ? "a2" : ""}`}> <img src={send} alt="send mesage" /> </button>
 
               </form>
               
