@@ -1,6 +1,16 @@
+import { useState } from "react"
 import "../css/response.css"
 
 function Box({value}) {
+
+  const [clas, setclas] = useState(false)
+
+  const clicked = () => {
+
+    // toggle true and false
+    setclas(!clas)
+    console.log("hi")
+  }
 
     return(
         <>
@@ -20,9 +30,16 @@ function Box({value}) {
         
               {value.loading && <p> loading... </p>}
         
-            <p>{value.response}</p>
+              <p>{value.response}</p>
         
           </div>
+
+          <div className="like">
+
+            <button onClick={clicked} className={`btn ${clas ? "like_active" : "" }`}> ♥ </button>
+          
+          </div>
+
                     
         </div>
         

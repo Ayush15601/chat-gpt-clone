@@ -32,3 +32,26 @@
     height: 2rem;
     margin-left: 1rem;
 }
+
+.like {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.like button {
+    font-size: 2rem;
+    color: white;
+}
+
+.like button:hover {
+    background-color: #121212;
+    border-radius: 50%;
+    width: 3rem;
+}
+
+.like_active {
+
+    /* Add !important to force the browser to apply it. */
+    color: red !important;
+}
