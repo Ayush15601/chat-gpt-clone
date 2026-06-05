@@ -22,13 +22,14 @@ function App() {
   const [Messages, setMessages] = useState([])
   const [active, setactive] = useState(false)
 
-   const load_response = async () => {
+   const load_response = async (text) => {
 
       try{
 
         // clear old error before second request
         seterr(null)
         setloading(true)
+
         const get_response = await main(text)
 
         setMessages(prev => [
@@ -52,20 +53,33 @@ function App() {
 
     const load = (e) => {
 
+      const id = e.currentTarget.id
+
       e.preventDefault()
-
-      // prevent emtpy message
-      if (!text.trim()) return;
-
+      
       // prevent multiple requet
       if(loading) return
-
+      
       // to change class of input box on load
       setactive(true)
-      load_response()
+      
+      if(id === "1"){
+        load_response("what is programing?")
+      }
+      
+      if(id === "2"){
+        load_response("what is the use of api?")
+      }
+      
+      if(id === "3"){
+        
+        // prevent emtpy message
+        if(!text.trim()) return
+        load_response(text)
 
-      // to clean text after loading response
-      settext("")
+        // to clean text after loading response
+        settext("")
+      }
     }
 
     const clean = () => {
@@ -79,9 +93,7 @@ function App() {
     // send data by pressing enter
     const enter = (e) => {
       if (e.key === "Enter" && !e.shiftKey) {
-      
-        e.preventDefault();
-
+        
         // here load_response() will not used
         load(e)
     }
@@ -107,9 +119,9 @@ function App() {
 
               <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
 
-              <button className="new_chat2"> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
+              <button className="new_chat2" id="1" onClick={load}> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
 
-              <button className="new_chat2"> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
+              <button className="new_chat2" id="2" onClick={load}> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
 
           </div>
 
@@ -146,7 +158,7 @@ function App() {
               <form action="#" method="get" onSubmit={load}>
   
                 {/* ckheck disabled attribute in button */}
-                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
+                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} id="3" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
 
               </form>
               
