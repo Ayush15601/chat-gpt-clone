@@ -32,7 +32,7 @@
 }
 
 .new_chat {
-    background-color: #555bff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     min-height: 3rem;
     width: 90%;
     display: flex;
@@ -57,6 +57,11 @@
     color: white;
 }
 
+.new_chat:hover,
+.new_chat2:hover {
+    background-color: #121212;
+}
+
 .new_chat span {
     color: white;
 }
@@ -75,7 +80,7 @@
 
 .setting {
     min-height: 3rem;
-    width: 40%;
+    width: 90%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -88,7 +93,7 @@
 
 .sidebar_down button:nth-of-type(3) {
     min-height: 3rem;
-    width: 65%;
+    width: 90%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -97,6 +102,11 @@
     margin-top: 1rem;
     margin-left: 1rem;
     color: white;
+}
+
+.sidebar_down button:nth-of-type(3):hover,
+.setting:hover {
+    background-color: #121212;
 }
 
 .main {
@@ -155,7 +165,7 @@ footer {
 }
 
 .send_message {
-    background-color: rgb(3, 0, 31);
+    background-color: black;
     width: 41%;
     height: 4rem;
     position: fixed;
@@ -177,7 +187,7 @@ footer {
 .s1 {
     width: 37.6%;
     height: 3rem;
-    background-color: #182243;
+    background-color: #212121;
     margin-left: 2rem;
     color: white;
     display: flex;
@@ -192,7 +202,7 @@ footer {
 .s2 {
     width: 5%;
     min-height: 3rem;
-    background-color: #182243;
+    background-color: #212121;
     color: white;
     display: flex;
     justify-content: flex-end;
@@ -205,7 +215,7 @@ footer {
 .s1a1 {
     width: 37.6%;
     height: 3rem;
-    background-color: #182243;
+    background-color: #212121;
     margin-left: 2rem;
     color: white;
     display: flex;
@@ -220,7 +230,7 @@ footer {
 .s2a2 {
     width: 5%;
     min-height: 3rem;
-    background-color: #182243;
+    background-color: #212121;
     color: white;
     display: flex;
     justify-content: flex-end;

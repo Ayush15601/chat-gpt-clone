@@ -113,8 +113,6 @@ function App() {
 
               <img src={gptlogo} alt="cgat gpt image" className="a_image" />
 
-              <span> Chat GPT </span>
-
             </div>
 
               <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
@@ -155,10 +153,10 @@ function App() {
 
           <div className="send_message"> 
                 
-              <form action="#" method="get" onSubmit={load}>
+              <form action="#" method="get" id="3" onSubmit={load}>
   
                 {/* ckheck disabled attribute in button */}
-                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} id="3" placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`} disabled={loading} > <img src={send} alt="send mesage" /> </button>
+                <textarea name="text" className={`${active ? "s1a1" : "s1"}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} onKeyDown={enter}></textarea> <button className={`${active ? "s2a2" : "s2"}`}> <img src={send} alt="send mesage" /> </button>
 
               </form>
               
