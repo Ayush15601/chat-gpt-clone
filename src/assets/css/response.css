@@ -4,6 +4,11 @@
     row-gap: 1rem;
 }
 
+.box1 .image {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .image img {
     width: 2rem;
     height: 2rem;

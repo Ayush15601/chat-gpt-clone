@@ -6,27 +6,25 @@ function Box({value}) {
         <>
         <div className="box1">
         
-                        <div className="image">
+          <div className="image">
         
-                          <img src={value.pic} alt="profile.pic" />
+            <p> {value.question} </p>
         
-                          <p> {value.question} </p>
+          </div>
         
-                        </div>
+          <div className="box2">
         
-                      <div className="box2">
+              <img src={value.logo} alt="chat gpt pic" />
         
-                        <img src={value.logo} alt="chat gpt pic" />
+              {value.err && <p>{value.err}</p>}
         
-                        {value.err && <p>{value.err}</p>}
+              {value.loading && <p> loading... </p>}
         
-                        {value.loading && <p> loading... </p>}
+            <p>{value.response}</p>
         
-                        <p>{value.response}</p>
-        
-                      </div>
+          </div>
                     
-            </div>
+        </div>
         
         </>
     )

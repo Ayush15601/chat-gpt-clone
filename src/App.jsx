@@ -5,7 +5,6 @@ import comment from "./assets/message.svg"
 import home from "./assets/home.svg"
 import book from "./assets/bookmark.svg"
 import rocket from "./assets/rocket.svg"
-import pic from "./assets/user-icon.png"
 import logo from "./assets/chatgptLogo.svg"
 import send from "./assets/send.svg"
 
@@ -145,7 +144,7 @@ function App() {
 
             {loading && <p className="loading"> loading... </p>}
 
-            {(Messages.map( (item, index) => (<Box value={{pic: pic, logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={index}/>)))}
+            {(Messages.map( (item, index) => (<Box value={{logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={index}/>)))}
             
             <footer>
             
