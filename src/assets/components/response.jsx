@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "../css/response.css"
+import ReactMarkdown from 'react-markdown'
 
 function Box({value}) {
 
@@ -25,7 +26,11 @@ function Box({value}) {
         
               <img src={value.logo} alt="chat gpt pic" />
         
-              <p>{value.response}</p>
+              <p> 
+              <ReactMarkdown>
+                {value.response}
+              </ReactMarkdown>
+            </p>
         
           </div>
 
