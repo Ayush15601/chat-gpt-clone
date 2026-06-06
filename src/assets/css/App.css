@@ -8,7 +8,7 @@
 .sidebar {
     max-width: 17rem;
     width: 100%;
-    height: 46rem;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -20,7 +20,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2rem;
 }
 
 .sidebar_up .image {
@@ -32,11 +32,10 @@
 }
 
 .new_chat {
-    border: 1px solid rgba(255, 255, 255, 0.2);
     min-height: 3rem;
     width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     column-gap: 0.5rem;
     margin-top: 1rem;
@@ -76,6 +75,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
+    row-gap: 1rem;
 }
 
 .setting {
@@ -118,6 +118,7 @@
     justify-content: center;
     position: relative;
     left: 17rem;
+    padding-bottom: 20rem;
 }
 
 .content_box {
@@ -126,8 +127,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
-    overflow-y: auto;
+    row-gap: 5rem;
 }
 
 .content_box .image {
@@ -144,13 +144,6 @@
     min-height: 1rem;
 }
 
-.content_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: baseline;
-    row-gap: 5rem;
-}
-
 .loading,
 .error {
     text-align: center;
@@ -160,22 +153,22 @@ textarea::-webkit-resizer {
     display: none;
 }
 
-footer {
-    min-height: 5rem;
-}
-
 .send_message {
     background-color: black;
-    width: 41%;
+    max-width: 40rem;
+    width: 100%;
     height: 4rem;
+}
+
+.send_message_active {
     position: fixed;
-    right: 19rem;
-    top: 42rem;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-26%);
 }
 
 .send_message .btn2 img {
     width: 1.5rem;
-
 }
 
 .send_message form {
@@ -184,42 +177,36 @@ footer {
     column-gap: 0;
 }
 
-.s {
-    width: 37.6%;
+form .btn {
+    max-width: 40rem;
+    width: 100%;
     height: 3rem;
     background-color: #212121;
-    margin-left: 2rem;
     color: white;
-    display: flex;
-    justify-content: flex-end;
     padding-left: 0.5rem;
     padding-top: 0.8rem;
-    position: fixed;
-    right: 21rem;
-    bottom: 22rem;
 }
 
-.s2 {
-    width: 5%;
+.btn2 {
+    width: 3rem;
     min-height: 3rem;
     background-color: #212121;
     color: white;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 10px;
-    position: fixed;
-    right: 19rem;
-    bottom: 22rem;
+    justify-content: center;
 }
 
 .a {
+    width: 35rem !important;
     position: fixed;
-    right: 21rem;
     bottom: 1rem;
+    left: 46%;
+    transform: translateX(-50%);
 }
 
 .a2 {
     position: fixed;
-    right: 315px;
     bottom: 1rem;
+    left: 92%;
+    transform: translateX(-50%);
 }
