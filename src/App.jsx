@@ -11,15 +11,22 @@ import send from "./assets/send.svg"
 import Box from "./assets/components/response"
 
 import {main} from "./assets/components/api"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 function App() {
-
+  
   const [text, settext] = useState("")
   const [err, seterr] = useState(null)
   const [loading, setloading] = useState(false)
   const [Messages, setMessages] = useState([])
   const [active, setactive] = useState(false)
+  const messagesEndRef = useRef(null)
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    })
+  }, [Messages])
 
    const load_response = async (text) => {
 
@@ -149,8 +156,10 @@ function App() {
             
             {err && <p className="error"> {err} </p>}
 
-            {loading && <p className="loading"> loading... </p>}
+            <div ref={messagesEndRef}></div>
             
+            {loading && <p className="loading"> loading... </p>}
+
             <div className={`send_message ${active ? 'send_message_active' : ''}`}> 
                 
               <form action="#" method="get" id="3" onSubmit={load}>
