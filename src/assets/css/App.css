@@ -165,7 +165,7 @@ textarea::-webkit-resizer {
 .send_message_active {
     position: fixed;
     bottom: 0rem;
-    left: 50%;
+    left: 48.6%;
     transform: translateX(-26%);
 }
 
@@ -209,6 +209,6 @@ form .btn {
 .a2 {
     position: fixed;
     bottom: 1rem;
-    left: 92%;
+    left: 91%;
     transform: translateX(-50%);
 }

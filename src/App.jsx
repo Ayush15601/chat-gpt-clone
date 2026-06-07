@@ -22,6 +22,7 @@ function App() {
   const [active, setactive] = useState(false)
   const messagesEndRef = useRef(null)
 
+  // auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
@@ -41,6 +42,8 @@ function App() {
         setMessages(prev => [
           ...prev,
         {
+
+          // Date.now() returns the current Unix timestamp in milliseconds, a big number like 1754920000123
           id: Date.now(),
           question: text,
           response: get_response
@@ -107,6 +110,7 @@ function App() {
       if (e.key === "Enter" && !e.shiftKey) {
         
         e.preventDefault()
+        
         // here load_response() will not used
         load(e)
     }
@@ -156,6 +160,7 @@ function App() {
             
             {err && <p className="error"> {err} </p>}
 
+            {/* auto scroll feature */}
             <div ref={messagesEndRef}></div>
             
             {loading && <p className="loading"> loading... </p>}
