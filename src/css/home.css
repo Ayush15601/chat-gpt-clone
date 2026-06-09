@@ -20,7 +20,9 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 0.5rem;
+    min-height: 5rem;
+    padding-bottom: 1rem;
 }
 
 .sidebar_up .image img {
@@ -72,12 +74,22 @@
     width: 1rem;
 }
 
+.history {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.history p {
+    margin-left: 1rem;
+}
+
 .sidebar_down {
     flex: 1;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 0rem;
 }
 
 .setting {
