@@ -24,8 +24,6 @@ function Box({value}) {
         
           <div className="box2">
         
-              <img src={value.logo} alt="chat gpt pic" />
-        
               <p> 
               <ReactMarkdown>
                 {value.response}

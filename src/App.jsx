@@ -1,4 +1,4 @@
-import "./assets/css/App.css"
+import "./css/App.css"
 import gptlogo from "./assets/chatgpt.svg"
 import plus from "./assets/add-30.png"
 import comment from "./assets/message.svg"
@@ -8,9 +8,9 @@ import rocket from "./assets/rocket.svg"
 import logo from "./assets/chatgptLogo.svg"
 import send from "./assets/send.svg"
 
-import Box from "./assets/components/response"
+import Box from "./components/response"
 
-import {main} from "./assets/components/api"
+import {main} from "./api"
 import { useState, useRef, useEffect } from "react"
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   const [active, setactive] = useState(false)
   const messagesEndRef = useRef(null)
 
-  // auto scroll
+  // auto scrollnp
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
