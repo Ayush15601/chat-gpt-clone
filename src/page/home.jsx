@@ -134,77 +134,71 @@ function Home() {
   return (
   
   <>
-  
-      <div className="first_box">
-  
-        <div className="sidebar">
 
-          <div className="sidebar_up">
+    <div className="sidebar_up">
 
-            <div className="image"> 
+      <div className="image"> 
 
-              <img src={gptlogo} alt="cgat gpt image" className="a_image" />
+        <img src={gptlogo} alt="cgat gpt image" className="a_image" />
 
-            </div>
+      </div>
 
-              <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
+        <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
 
-              <button className="new_chat2" id="1" onClick={load}> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
+        <button className="new_chat2" id="1" onClick={load}> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
 
-              <button className="new_chat2" id="2" onClick={load}> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
+        <button className="new_chat2" id="2" onClick={load}> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
 
-              <div className="history">
+        <div className="history">
 
-                <p> Recents </p>
-               
-                {chat.map(item => (<button key={item.id} className="new_chat2" onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> ))}
-              
-              </div>
-              
-
-          </div>
-
-          <div className="sidebar_down">
-
-              <button className="setting"> <img src={home} alt="home pic" /> <span> Home </span> </button>
-
-              <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
-              
-              <button > <img src={rocket} alt="plys sign" /> <span> Upgrade to pro? </span> </button>
-
-          </div>
-
+          <p className={`para ${active ? "para_active" : ""}`}> Recents... </p>
+          
+          {chat.map(item => (<button key={item.id} className="new_chat2" onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> ))}
+        
         </div>
         
-        <div className="main">
+    </div>
 
-          <div className="content_box">
+    <div className="sidebar_down">
 
-            {(Messages.map( (item) => (<Box value={{logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={item.id}/>)))}
+        <button className="setting"> <img src={home} alt="home pic" /> <span> Home </span> </button>
+
+        <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
+        
+        <button > <img src={rocket} alt="plys sign" /> <span> Upgrade to pro? </span> </button>
+
+    </div>
+    
+
+
+    
+    <div className="main">
+
+      <div className="content_box">
+
+        {(Messages.map( (item) => (<Box value={{logo: logo, err: err, loading: loading, response: item.response, question: item.question}} key={item.id}/>)))}
+        
+        {err && <p className="error"> {err} </p>}
+
+        {/* auto scroll feature */}
+        <div ref={messagesEndRef}></div>
+        
+        {loading && <p className="loading"> loading... </p>}
+
+        <div className={`send_message ${active ? 'send_message_active' : ''}`}> 
             
-            {err && <p className="error"> {err} </p>}
+          <form action="#" method="get" id="3" onSubmit={load}>
 
-            {/* auto scroll feature */}
-            <div ref={messagesEndRef}></div>
-            
-            {loading && <p className="loading"> loading... </p>}
+            {/* ckheck disabled attribute in button */}
+            <textarea name="text" className={`btn ${active ? "a" : ""}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} id="4" onKeyDown={enter}></textarea> <button className={`btn2 ${active ? "a2" : ""}`} disabled={!text.trim() || loading}> <img src={send} alt="send mesage" /> </button>
 
-            <div className={`send_message ${active ? 'send_message_active' : ''}`}> 
-                
-              <form action="#" method="get" id="3" onSubmit={load}>
-  
-                {/* ckheck disabled attribute in button */}
-                <textarea name="text" className={`btn ${active ? "a" : ""}`} placeholder="Type your message" value={text} onChange={(e) => settext(e.target.value)} id="4" onKeyDown={enter}></textarea> <button className={`btn2 ${active ? "a2" : ""}`} disabled={!text.trim() || loading}> <img src={send} alt="send mesage" /> </button>
-
-              </form>
-              
-            </div>
-
-          </div>
-
+          </form>
+          
         </div>
-  
+
       </div>
+
+    </div>
   
     </>
   
