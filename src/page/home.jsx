@@ -129,6 +129,17 @@ function Home() {
           setMessages([selected]);
           setactive(true);
         }
+      }
+      
+      const del = (id) => {
+        setMessages(prev => prev.filter(item => item.id !== id));
+        
+        const updated = chat.filter(item => item.id !== id);
+        setchat(updated);
+
+        if (updated.length === 0) {
+          setactive(false);
+        }
     }
  
   return (
@@ -137,11 +148,13 @@ function Home() {
 
     <div className="sidebar_up">
 
-      <div className="image"> 
+      <div className="sticky">
 
-        <img src={gptlogo} alt="cgat gpt image" className="a_image" />
+        <div className="image"> 
 
-      </div>
+         <img src={gptlogo} alt="cgat gpt image" className="a_image" />
+
+        </div>
 
         <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
 
@@ -149,11 +162,13 @@ function Home() {
 
         <button className="new_chat2" id="2" onClick={load}> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
 
+      </div>
+      
         <div className="history">
 
           <p className={`para ${active ? "para_active" : ""}`}> Recents... </p>
           
-          {chat.map(item => (<button key={item.id} className="new_chat2" onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> ))}
+          {chat.map(item => ( <div className="btn_container"> <button className="btn3_1" key={item.id} onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> <button className="btn3" onClick={ () => {del(item.id)}}> ⋮ </button> </div>))}
         
         </div>
         

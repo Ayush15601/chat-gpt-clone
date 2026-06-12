@@ -1,0 +1,34 @@
+[33m2f2d3c7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fixed index css
+[33m67fde61[m updaed css na added chat history
+[33madba45a[m updated UI
+[33mbc0fd25[m Merge branch 'main' of https://github.com/Ayush15601/chat-gpt-clone
+[33m3a55120[m improved code readiblity
+[33mdf64b03[m Update README.md
+[33mdb8108f[m added auto scroll feature
+[33mde00fe0[m bug fixed
+[33m2f6677b[m majour bugs fixed and installed react mark down
+[33mb6faf98[m added like button for each response
+[33ma77f125[m minor style updaed and removed user pic
+[33m7d1def1[m request box bug fixed
+[33mbd49441[m changed UI and fixed request button
+[33m770d6d9[m improved send response logic and added logic for sidebar  buttons
+[33maa9adba[m Add Enter key support for sending messages
+[33m6feec9d[m updated: input box layout with state class
+[33m7a79add[m fixed: input box layout and styling
+[33m60a5ca6[m fixed: styling
+[33m9de6cf2[m fixed new chat logic and  added loading + error layout
+[33mdb17c4b[m feat: display multiple response
+[33m3ca3507[m Initial clean commit without secrets
+[33mb108fd5[m deleted openai package
+[33md232644[m feat: added open ai packages
+[33m2473d53[m added send response button layout
+[33mf67d183[m added response box layout with profile pic
+[33m855c561[m minor css fixed
+[33mbbe18ea[m added 3 setings button layout
+[33m06165e6[m added two suggestion buttons
+[33m2500354[m added new chat button layout
+[33mf7a42fa[m added required images and chat gpt logo
+[33mcaabbff[m added basic layout
+[33me739cb7[m resolved merge conflicts
+[33m8a82218[m first commit: initial project upload
+[33mba7c516[m Initial commit

@@ -9,6 +9,12 @@
     border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.sidebar_up .sticky {
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
+
 .sidebar_up .image img {
     display: flex;
     flex-direction: row;
@@ -70,6 +76,45 @@
 
 .history .para_active {
     display: inline;
+}
+
+.btn_container {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 3rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    column-gap: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.btn_container:hover {
+    background-color: #121212;
+}
+
+.btn3_1 {
+    color: white;
+}
+
+.history .btn3 {
+    width: 1rem;
+    height: 3rem;
+    background-color: #121212;
+    color: white;
+    margin-left: 4rem;
+    visibility: hidden;
+}
+
+.history .btn3:hover {
+    font-weight: bold;
+    background-color: black;
+}
+
+.btn_container:hover .btn3 {
+    visibility: visible;
 }
 
 .sidebar_down {
