@@ -1,17 +1,17 @@
 import Home from "./page/home"
-import { Chatprovider } from "./context/context"
+import { ChatProvider } from "./context/context.jsx"
 
 function App() {
 
   return(
 
     <>
-    
-      <Chatprovider>
       
+      <ChatProvider>
+
         <Home />
-      
-      </Chatprovider>
+
+      </ChatProvider>
     
     </>
 

@@ -1,192 +1,22 @@
 
 import "../css/home.css"
-import gptlogo from "../assets/chatgpt.svg"
-import plus from "../assets/add-30.png"
-import comment from "../assets/message.svg"
-import home from "../assets/home.svg"
-import book from "../assets/bookmark.svg"
-import rocket from "../assets/rocket.svg"
 import logo from "../assets/chatgptLogo.svg"
 import send from "../assets/send.svg"
 
 import Box from "../components/response"
-
-import {main} from "../api"
-import { useState, useRef, useEffect } from "react"
-import { usechatcontext } from "../context/context"
+import Sidebar from "../components/sidebar"
+import { useChatContext } from "../context/context"
 
 function Home() {
   
-  const [text, settext] = useState("")
-  const [err, seterr] = useState(null)
-  const [loading, setloading] = useState(false)
-  const [Messages, setMessages] = useState([])
-  const [active, setactive] = useState(false)
-  const messagesEndRef = useRef(null)
-
-  const {chat, setchat} = usechatcontext()
-
-  // auto scrollnp
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth"
-    })
-  }, [Messages])
-
-   const load_response = async (text) => {
-
-      try{
-
-        // clear old error before second request
-        seterr(null)
-        setloading(true)
-
-        const get_response = await main(text)
-
-        const msg = {
-
-          // Date.now() returns the current Unix timestamp in milliseconds, a big number like 1754920000123
-          id: Date.now(),
-          question: text,
-          response: get_response
-        }
-
-        setMessages(prev => [...prev, msg]);
-
-        // for chat history
-        setchat(prev => [...prev, msg]);
-      }
-
-      catch(err){
-        console.log(err)
-        seterr("Failed to get response from server")
-      }
-
-      finally{
-        setloading(false)
-      }
-    }
-
-    const load = (e) => {
-
-      // why its added check disable attribute of textarea
-      // console.log("hi")
-
-      const id = e.currentTarget.id
-
-      e.preventDefault()
-      
-      // prevent multiple requet
-      if(loading) return
-      
-      // to change class of input box on load
-      
-      if(id === "1"){
-        setactive(true)
-        load_response("what is programing?")
-      }
-      
-      if(id === "2"){
-        setactive(true)
-        load_response("what is the use of api?")
-      }
-      
-      if(id === "3" || id === "4"){
-        
-        // prevent emtpy message
-        if(!text.trim()) return
-        setactive(true)
-        load_response(text)
-
-        // to clean text after loading response
-        settext("")
-      }
-    }
-
-    const clean = () => {
-      setMessages([])
-      settext("")
-      seterr(null)
-      setloading(false)
-      setactive(false)
-    }
-
-    // send data by pressing enter
-    const enter = (e) => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        
-        e.preventDefault()
-        
-        // here load_response() will not used
-        load(e)
-    }
-};
-
-    const openHistory = (id) => {
-      const selected = chat.find(item => item.id === id);
-
-        if(selected){
-          setMessages([selected]);
-          setactive(true);
-        }
-      }
-      
-      const del = (id) => {
-        setMessages(prev => prev.filter(item => item.id !== id));
-        
-        const updated = chat.filter(item => item.id !== id);
-        setchat(updated);
-
-        if (updated.length === 0) {
-          setactive(false);
-        }
-    }
+  const {text, settext, err, loading, Messages, active, load, enter, messagesEndRef} = useChatContext()
  
   return (
   
   <>
 
-    <div className="sidebar_up">
+    <Sidebar />
 
-      <div className="sticky">
-
-        <div className="image"> 
-
-         <img src={gptlogo} alt="cgat gpt image" className="a_image" />
-
-        </div>
-
-        <button className="new_chat" onClick={clean}> <img src={plus} alt="plys pic" /> <span> New chat </span> </button>
-
-        <button className="new_chat2" id="1" onClick={load}> <img src={comment} alt="comment pic" /> <span> What is programming? </span> </button>
-
-        <button className="new_chat2" id="2" onClick={load}> <img src={comment} alt="comment pic" /> <span> How to use API? </span> </button>
-
-      </div>
-      
-        <div className="history">
-
-          <p className={`para ${active ? "para_active" : ""}`}> Recents... </p>
-          
-          {chat.map(item => ( <div className="btn_container"> <button className="btn3_1" key={item.id} onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> <button className="btn3" onClick={ () => {del(item.id)}}> ⋮ </button> </div>))}
-        
-        </div>
-        
-    </div>
-
-    <div className="sidebar_down">
-
-        <button className="setting"> <img src={home} alt="home pic" /> <span> Home </span> </button>
-
-        <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
-        
-        <button > <img src={rocket} alt="plys sign" /> <span> Upgrade to pro? </span> </button>
-
-    </div>
-    
-
-
-    
     <div className="main">
 
       <div className="content_box">

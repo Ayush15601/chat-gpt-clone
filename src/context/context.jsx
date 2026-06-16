@@ -1,32 +1,16 @@
-import { useContext, createContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
+import { usehook } from "../hooks/hook";
 
+const ChatContext = createContext();
 
-const Chatcontext = createContext()
+export const useChatContext = () => useContext(ChatContext);
 
-export const usechatcontext = () => useContext(Chatcontext)
+export function ChatProvider({ children }) {
+    const value = usehook();
 
-export const Chatprovider = ({children}) => {
-
-     const [chat, setchat] = useState([]);
-
-    useEffect(() => {
-        const getchat = localStorage.getItem("chat");
-        if (getchat) setchat(JSON.parse(getchat));
-    }, []);
-
-    useEffect(() => {
-     localStorage.setItem("chat", JSON.stringify(chat));
-    }, [chat]);
-
-    const value = {chat, setchat}
-
-    return(
-
-        <>
-
-            <Chatcontext.Provider value={value}> {children} </Chatcontext.Provider>
-
-        </>
-    
-    )
+    return (
+        <ChatContext.Provider value={value}>
+            {children}
+        </ChatContext.Provider>
+    );
 }
