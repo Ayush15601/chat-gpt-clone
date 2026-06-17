@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #212121;
+    background-color: var(--bg2);
     min-width: 1rem;
     min-height: 3rem;
     border-radius: 2rem;
@@ -38,11 +38,11 @@
 
 .like button {
     font-size: 2rem;
-    color: white;
+    color: var(--text);
 }
 
 .like button:hover {
-    background-color: #121212;
+    background-color: var(--bg3);
     border-radius: 50%;
     width: 3rem;
 }

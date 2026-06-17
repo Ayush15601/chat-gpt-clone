@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: black;
+  --bg2: #212121;
+  --bg3: #121212;
+  --border: rgba(255, 255, 255, 0.2);
+  --text: white;
+}
+
 /* Root elements */
 html,
 body,
@@ -18,8 +26,8 @@ body,
 
   /* Use dvh if supported to prevent mobile browser UI clipping */
   min-height: 100dvh;
-  color: #ffffff;
-  background-color: black;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 #root {

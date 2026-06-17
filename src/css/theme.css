@@ -1,0 +1,33 @@
+html.light {
+    --bg: white;
+    --bg2: #f0f0f0;
+    --bg3: #f5f5f5;
+    --border: rgba(0, 0, 0, 0.1);
+    --text: black;
+}
+
+html.dark {
+    --bg: black;
+    --text: white;
+}
+
+.theme_theme {
+    position: absolute;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+    bottom: 5rem;
+    left: 17rem;
+    background-color: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 11rem;
+    color: var(--text);
+}
+
+.theme_theme button {
+    background-color: gray;
+    color: var(--text);
+    width: 8rem;
+}

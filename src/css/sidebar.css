@@ -6,16 +6,17 @@
     width: 100%;
     min-height: 20rem;
     padding-top: 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid var(--border);
 }
 
 .sidebar_up .sticky {
     position: sticky;
     top: 0;
-    background-color: black;
+    background-color: var(--bg);
 }
 
 .sidebar_up .image img {
+    background-color: black;
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
@@ -36,7 +37,7 @@
 }
 
 .new_chat2 {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border);
     min-height: 3rem;
     width: 90%;
     display: flex;
@@ -46,16 +47,16 @@
     column-gap: 1.5rem;
     margin-top: 1rem;
     margin-left: 1rem;
-    color: white;
+    color: var(--text);
 }
 
 .new_chat:hover,
 .new_chat2:hover {
-    background-color: #121212;
+    background-color: var(--bg3);
 }
 
 .new_chat span {
-    color: white;
+    color: var(--text);
 }
 
 .new_chat img {
@@ -79,7 +80,7 @@
 }
 
 .btn_container {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border);
     min-height: 3rem;
     width: 90%;
     display: flex;
@@ -92,25 +93,25 @@
 }
 
 .btn_container:hover {
-    background-color: #121212;
+    background-color: var(--bg3);
 }
 
 .btn3_1 {
-    color: white;
+    color: var(--text);
 }
 
 .history .btn3 {
     width: 1rem;
     height: 3rem;
-    background-color: #121212;
-    color: white;
+    background-color: var(--bg3);
+    color: var(--text);
     margin-left: 4rem;
     visibility: hidden;
 }
 
 .history .btn3:hover {
     font-weight: bold;
-    background-color: black;
+    background-color: var(--bg);
 }
 
 .btn_container:hover .btn3 {
@@ -121,7 +122,8 @@
     position: fixed;
     bottom: 0;
     width: 20rem;
-    background-color: black;
+    background-color: var(--bg);
+    z-index: 100;
 }
 
 .setting {
@@ -134,7 +136,7 @@
     column-gap: 1rem;
     margin-top: 1rem;
     margin-left: 1rem;
-    color: white;
+    color: var(--text);
 }
 
 .sidebar_down button:nth-of-type(3) {
@@ -147,10 +149,15 @@
     column-gap: 1rem;
     margin-top: 1rem;
     margin-left: 1rem;
-    color: white;
+    color: var(--text);
 }
 
 .sidebar_down button:nth-of-type(3):hover,
 .setting:hover {
-    background-color: #121212;
+    background-color: var(--bg3);
+}
+
+.setting .home_img {
+    width: 1.5rem;
+    height: 1.5rem;
 }

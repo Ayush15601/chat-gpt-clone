@@ -11,6 +11,7 @@ export function usehook() {
     const [active, setactive] = useState(false)
     const messagesEndRef = useRef(null)
     const [chat, setchat] = useState([]);
+    const [theme, settheme] = useState(false)
 
 
 
@@ -164,5 +165,5 @@ export function usehook() {
         }
 
 
-        return {text, settext, err, seterr, loading, setloading, Messages, setMessages, active, setactive, chat, setchat, load, load_response, clean, enter, openHistory, del, messagesEndRef}
+        return {text, settext, err, seterr, loading, setloading, Messages, setMessages, active, setactive, chat, setchat, theme, settheme, load, load_response, clean, enter, openHistory, del, messagesEndRef}
 }

@@ -1,16 +1,17 @@
 import gptlogo from "../assets/chatgpt.svg"
 import plus from "../assets/add-30.png"
 import comment from "../assets/message.svg"
-import home from "../assets/home.svg"
+import home from "../assets/opi.png"
 import book from "../assets/bookmark.svg"
 import rocket from "../assets/rocket.svg"
 
+import Theme from "./theme.jsx"
 import { useChatContext } from "../context/context.jsx"
 import "../css/sidebar.css"
 
 function Sidebar() {
 
-      const {active, chat, load, clean, openHistory, del} = useChatContext()
+      const {active, chat, theme, settheme, load, clean, openHistory, del} = useChatContext()
 
     return(
 
@@ -46,7 +47,10 @@ function Sidebar() {
 
             <div className="sidebar_down">
 
-                <button className="setting"> <img src={home} alt="home pic" /> <span> Home </span> </button>
+                <button className="setting" onClick={() => settheme(!theme)}> <img className="home_img" src={home} alt="home pic" /> <span> Setting </span> </button>
+
+                {/* Here theme box is popping, so buttons will not work normally. So how to make them work? */}
+                <Theme />
 
                 <button className="setting"> <img src={book} alt="book pic" /> <span> Saved </span> </button>
             
