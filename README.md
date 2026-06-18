@@ -1,165 +1,117 @@
 # ChatGPT Clone (React + Gemini API)
 
-A modern ChatGPT-inspired web application built with React and Google's Gemini API. Users can send prompts, receive AI-generated responses, manage chat history, and interact with a clean chat interface.
+A modern, highly optimized ChatGPT-inspired web application built with React, pure CSS variables, and Google's Gemini API (`gemini-2.5-flash`). It features real-time conversational markdown rendering, a local persistence layer, custom theme states, and an independent scroll layout.
+
+---
+
+## 📸 Screenshots
+
+![Home page](<home page.png>)
 
 
-## Features
+---
 
-* AI-powered responses using Gemini 2.5 Flash Lite
-* Real-time chat interface
-* Multiple conversation messages
-* Loading state while generating responses
-* Error handling for failed API requests
-* New Chat functionality
-* Quick prompt buttons
-* Like/Favorite responses
-* Fixed chat input area
-* Markdown response rendering
-* Responsive sidebar layout
+## ✨ Features
 
+* **Gemini AI Integration:** Asynchronous interaction with Google GenAI using the advanced `gemini-2.5-flash` model.
+* **Markdown Rendering:** Supports clean, well-formatted dynamic markdown strings directly inside chat replies using `react-markdown`.
+* **Smart Local Persistence:** Automatically hooks into browser `localStorage` to perfectly save and synchronize recent chats, dialogue feeds, and current user themes across refreshes.
+* **Interactive Chat Elements:** Individual message containers include an integrated toggleable **Like/Favorite (♥)** status interaction.
+* **Advanced Theme Orchestration:** Full Light Mode and Dark Mode switching utilizing custom `:root` CSS variables mapped to `document.documentElement.className` for flawless edge-to-edge colors and scroll sync (`color-scheme`).
+* **Independent Scroll Architecture:** Separate flexbox layout viewports configured with `overscroll-behavior: contain` to lock and isolate history scroll movement away from the primary canvas feed.
+* **Unified UI/UX Custom Scrollbars:** Unified custom scrollbar metrics synced to localized CSS theme variables (`--border` / `--bg2`) supporting both Webkit and Mozilla Gecko rendering engines.
 
-## Tech Stack
+---
 
-### Frontend
+## 🛠️ Tech Stack
 
-* React
-* JavaScript (ES6+)
-* CSS3
-* React Markdown
+### Frontend Architecture
+* **React 18+** (Functional Hooks, Context API state providers, Refs)
+* **React Markdown** (Syntax and format parser)
+* **Pure CSS3 System** (Dynamic global variable parameters)
 
 ### AI Integration
+* **Google Gemini API Engine** (`@google/genai`)
+* **Vite** (Environment build system)
 
-* Google Gemini API
-* @google/genai
+---
 
-
-## Installation
+## 🚀 Installation & Setup
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/your-username/chatgpt-clone.git
-```
-
-### 2. Navigate to the project folder
-
-```bash
 cd chatgpt-clone
 ```
 
-### 3. Install dependencies
-
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### 4. Create environment variables
-
-Create a `.env` file in the root directory:
-
+### 3. Setup Environment Configuration
+Create a `.env` file directly within the root directory of the application:
 ```env
 VITE_GCP_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-### 5. Start the development server
-
+### 4. Fire up the Development Engine
 ```bash
 npm run dev
 ```
+The application will boot live on: `http://localhost:5173`
 
-The application will be available at:
+---
 
-```text
-http://localhost:5173
-```
-
-
-## Project Structure
+## 📁 Updated Project Structure
 
 ```text
 src/
-│
-├── assets/
-│   ├── components/
-│   │   ├── api.js
-│   │   └── response.jsx
-│   │
-│   ├── css/
-│   │   ├── App.css
-│   │   └── response.css
-│   │
-│   ├── *.svg
-│   └── *.png
-│
-├── App.jsx
-└── main.jsx
+├── api.js                # Initiates GoogleGenAI Client using gemini-2.5-flash
+├── App.jsx               # Top-level Application Context wrapper
+├── main.jsx              # DOM Entry Point Mount
+├── assets/               # Asset catalog (Vectors, PNG icons, and brand graphics)
+├── components/           # Modular Functional Layout Components
+│   ├── response.jsx      # Response container block with Markdown and Like tracking
+│   ├── sidebar.jsx       # Side Navigation, quick actions, and state togglers
+│   └── theme.jsx         # Absolute Popover Theme Toggle Panel
+├── context/
+│   └── context.jsx       # Shared State Distribution Layer (React Context Provider)
+├── css/                  # Granular Structural Pure CSS System
+│   ├── home.css          # Chat interface, relative text areas, and main viewport styles
+│   ├── index.css         # Global Stylesheet resets, custom scrollbars, and body defaults
+│   ├── response.css      # Core chat message text alignments and like button rules
+│   ├── sidebar.css       # Flexbox layouts and hover attributes mapping the sidebar
+│   └── theme.css         # Theme specific parameters mapping color states
+├── hooks/
+│   └── hook.js           # Central engine hook (Handles LocalStorage, input triggers, and API loading)
+└── page/
+    └── home.jsx          # Primary Application Core Viewport mapping side-by-side elements
 ```
 
+---
 
-## How It Works
+## 📋 State Architecture & Data Flow
 
-1. User enters a prompt.
-2. React sends the prompt to the Gemini API.
-3. Gemini generates a response.
-4. The response is displayed in the chat window.
-5. Messages are stored in component state and rendered dynamically.
+1. **User Action:** A user types a prompt or selects a recent history button.
+2. **Context Orchestration:** The execution flows through `usehook()`, handling global state variables for `loading`, `Messages`, and `localtheme`.
+3. **Persistent Layering:** A dual-stream `useEffect` ecosystem interceptor watches hooks to dynamically write and read conversational blocks or class configurations into client storage.
+4. **HTML Level Interfacing:** Selected variables map immediately down to `document.documentElement.className` to execute a site-wide repaint instantly.
 
+---
 
-## Current Features
+## ⚖️ Security Notice
 
-* Chat conversations
-* Prompt suggestions
-* Message history
-* Loading indicator
-* Error handling
-* Like button for responses
+This application handles communications on the frontend via Vite environment hooks. For large production deployments, it is highly recommended to bridge incoming requests through a backend reverse proxy server to prevent any visual leaking of structural API credentials.
 
-## Planned Improvements
+---
 
-* Auto-scroll to latest message
-* Message persistence using local storage
-* Dark/Light theme toggle
-* Chat history management
-* Copy response button
-* Regenerate response button
-* Backend proxy for API security
-* Authentication system
-* User profiles
-* Responsive mobile design
+## 👤 Author
 
+* **Ayush**
 
-## Security Note
+---
 
-This project currently uses a Vite environment variable for the Gemini API key.
+## 📄 License
 
-For production deployments, API requests should be routed through a backend server to avoid exposing API credentials to users.
-
-
-## Dependencies
-
-```json
-{
-  "@google/genai": "^latest",
-  "react": "^latest",
-  "react-dom": "^latest",
-  "react-markdown": "^latest"
-}
-```
-
-
-## Learning Goals
-
-This project was built to practice:
-
-* React Hooks
-* State Management
-* API Integration
-* Component-Based Architecture
-* Conditional Rendering
-* Async/Await
-* Frontend UI Development
-
-
-## License
-
-This project is open source and available under the MIT License.
+This project is fully open source and distributed under the terms of the [MIT License](LICENSE).

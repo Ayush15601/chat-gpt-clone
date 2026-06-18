@@ -18,8 +18,8 @@ html.dark {
     flex-direction: column;
     row-gap: 1rem;
     align-items: center;
-    bottom: 5rem;
-    left: 17rem;
+    bottom: 7rem;
+    left: 10rem;
     background-color: var(--bg);
     border: 1px solid rgba(255, 255, 255, 0.2);
     width: 11rem;
