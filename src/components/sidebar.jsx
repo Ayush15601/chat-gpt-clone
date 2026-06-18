@@ -15,7 +15,9 @@ function Sidebar() {
 
         <>
         
-            <div className="sidebar_up" onClick={() => settheme(false)}>
+            <div className="sidebar_container">
+
+                <div className="sidebar_up" onClick={() => settheme(false)}>
 
                 <div className="sticky">
 
@@ -41,14 +43,16 @@ function Sidebar() {
             
                 </div>
             
-            </div>
+                </div>
 
-            <div className="sidebar_down" >
+                <div className="sidebar_down" >
 
-                <button className="setting" onClick={() => settheme(!theme)}> <img className="home_img" src={home} alt="home pic" /> <span> Setting </span> </button>
+                    <button className="setting" onClick={() => settheme(!theme)}> <img className="home_img" src={home} alt="home pic" /> <span> Setting </span> </button>
 
-                {/* Here theme box is popping, so buttons will not work normally. So how to make them work? */}
-                <Theme />
+                    {/* Here theme box is popping, so buttons will not work normally. So how to make them work? */}
+                    <Theme />
+
+                </div>
 
             </div>
 
