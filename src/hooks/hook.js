@@ -12,6 +12,8 @@ export function usehook() {
     const messagesEndRef = useRef(null)
     const [chat, setchat] = useState([]);
     const [theme, settheme] = useState(false)
+    const [localtheme, setlocaltheme] = useState("")
+
 
 
 
@@ -35,6 +37,25 @@ export function usehook() {
     useEffect(() => {
         localStorage.setItem("chat", JSON.stringify(chat));
     }, [chat]);
+
+
+
+
+    // to saves chats locally
+    useEffect(() => {
+        const gettheme = localStorage.getItem("localtheme");
+        if (gettheme) {
+            setlocaltheme(gettheme);
+            document.documentElement.className = gettheme; 
+            }
+        }, []);
+
+    useEffect(() => {
+        if (localtheme) { 
+            localStorage.setItem("localtheme", localtheme);
+            document.documentElement.className = localtheme;
+            }
+        }, [localtheme]);
 
 
 
@@ -165,5 +186,7 @@ export function usehook() {
         }
 
 
-        return {text, settext, err, seterr, loading, setloading, Messages, setMessages, active, setactive, chat, setchat, theme, settheme, load, load_response, clean, enter, openHistory, del, messagesEndRef}
+
+        
+        return {text, settext, err, seterr, loading, setloading, Messages, setMessages, active, setactive, chat, setchat, theme, settheme, localtheme, setlocaltheme, load, load_response, clean, enter, openHistory, del, messagesEndRef}
 }

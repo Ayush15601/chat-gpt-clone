@@ -9,7 +9,7 @@ import { useChatContext } from "../context/context"
 
 function Home() {
   
-  const {text, settext, err, loading, Messages, active, load, enter, messagesEndRef} = useChatContext()
+  const {text, settext, settheme, err, loading, Messages, active, load, enter, messagesEndRef} = useChatContext()
  
   return (
   
@@ -17,7 +17,7 @@ function Home() {
 
     <Sidebar />
 
-    <div className="main">
+    <div className="main" onClick={() => settheme(false)}>
 
       <div className="content_box">
 
