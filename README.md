@@ -100,12 +100,6 @@ src/
 
 ---
 
-## ⚖️ Security Notice
-
-This application handles communications on the frontend via Vite environment hooks. For large production deployments, it is highly recommended to bridge incoming requests through a backend reverse proxy server to prevent any visual leaking of structural API credentials.
-
----
-
 ## 👤 Author
 
 * **Ayush**
