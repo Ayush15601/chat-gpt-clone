@@ -142,4 +142,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
->>>>>>> ba7c5161c2eeb336eeba0835af1332b252bcb757
+
+# Screenshots
+*.png
+*.pdf

@@ -24,11 +24,9 @@ function Box({value}) {
         
           <div className="box2">
         
-              <p> 
               <ReactMarkdown>
                 {value.response}
               </ReactMarkdown>
-            </p>
         
           </div>
 

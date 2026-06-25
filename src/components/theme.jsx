@@ -1,5 +1,5 @@
 import "../css/theme.css"
-import { useChatContext } from "../context/context"
+import { useChatContext } from "../context/context.jsx"
 
 function Theme(){
 

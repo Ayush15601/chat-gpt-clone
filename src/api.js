@@ -1,6 +1,6 @@
-const apikey = import.meta.env.VITE_GCP_API_KEY
-
 import { GoogleGenAI } from "@google/genai";
+
+const apikey = import.meta.env.VITE_GCP_API_KEY
 
 const ai = new GoogleGenAI({
   apiKey: apikey

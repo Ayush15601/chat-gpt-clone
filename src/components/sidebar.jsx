@@ -39,7 +39,7 @@ function Sidebar() {
 
                     <p className={`para ${active ? "para_active" : ""}`}> Recents... </p>
             
-                    {chat.map(item => ( <div className="btn_container"> <button className="btn3_1" key={item.id} onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> <button className="btn3" onClick={ () => {del(item.id)}}> ⋮ </button> </div>))}
+                    {chat.map(item => ( <div className="btn_container" key={item.id}> <button className="btn3_1" onClick={() => openHistory(item.id)}> {item.question.slice(0, 25)}... </button> <button className="btn3" onClick={ () => {del(item.id)}}> ⋮ </button> </div>))}
             
                 </div>
             

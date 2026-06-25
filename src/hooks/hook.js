@@ -2,7 +2,7 @@ import {main} from "../api"
 import { useState, useRef, useEffect } from "react"
 
 
-export function usehook() {
+export function useHook() {
     
     const [text, settext] = useState("")
     const [err, seterr] = useState(null)
@@ -10,9 +10,16 @@ export function usehook() {
     const [Messages, setMessages] = useState([])
     const [active, setactive] = useState(false)
     const messagesEndRef = useRef(null)
-    const [chat, setchat] = useState([]);
+    const [chat, setchat] = useState(() => {
+        const saved = localStorage.getItem("chat");
+        return saved ? JSON.parse(saved) : [];
+    });
     const [theme, settheme] = useState(false)
-    const [localtheme, setlocaltheme] = useState("")
+    const [localtheme, setlocaltheme] = useState(() => {
+        const saved = localStorage.getItem("localtheme");
+        if (saved) document.documentElement.className = saved;
+        return saved || "";
+    })
 
 
 
@@ -28,34 +35,16 @@ export function usehook() {
 
 
 
-    // to saves chats locally
-     useEffect(() => {
-        const getchat = localStorage.getItem("chat");
-        if (getchat) setchat(JSON.parse(getchat));
-    }, []);
-
     useEffect(() => {
         localStorage.setItem("chat", JSON.stringify(chat));
     }, [chat]);
 
-
-
-
-    // to saves chats locally
     useEffect(() => {
-        const gettheme = localStorage.getItem("localtheme");
-        if (gettheme) {
-            setlocaltheme(gettheme);
-            document.documentElement.className = gettheme; 
-            }
-        }, []);
-
-    useEffect(() => {
-        if (localtheme) { 
+        if (localtheme) {
             localStorage.setItem("localtheme", localtheme);
             document.documentElement.className = localtheme;
-            }
-        }, [localtheme]);
+        }
+    }, [localtheme]);
 
 
 
